@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import Item from "./Item";
+import { waitForDomChange } from "@testing-library/react";
 
 function ShoppingList({ items }) {
+
+  const [selectedCategory, catFilter] = useState("All")
+
+  function filteredCategory(event){
+    catFilter(event.target.value)
+  }
+
+
+
   return (
     <div className="ShoppingList">
       <div className="Filter">
